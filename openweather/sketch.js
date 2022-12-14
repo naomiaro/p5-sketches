@@ -12,6 +12,7 @@ let cloudy = 100;
 
 let temp;
 let feelsLike;
+let description;
 
 function preload() {
   // Get the most recent earthquake in the database
@@ -37,6 +38,7 @@ function draw() {
 
   temp = Math.round(weatherResponse['main']['temp']);
   feelsLike = Math.round(weatherResponse['main']['feels_like']);
+  description = weatherResponse['weather'][0]['description'];
 
   background(51);
 
@@ -59,6 +61,8 @@ function draw() {
 
   text(`${temp} °C`, 10, 250);
   text(`${feelsLike} °C`, 200, 250);
+
+  text(description, 200, 450);
 
   cloudx+=0.1;
 }
